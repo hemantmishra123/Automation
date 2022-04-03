@@ -1,0 +1,90 @@
+from selenium import webdriver
+import os
+#it is the header decleration for the programme.
+import webbrowser
+from pymongo import MongoClient
+import time
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.support.ui import Select
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+import pandas as pd
+import numpy as np
+#it is the plotting library for ploting the 
+import matplotlib.pyplot as plt
+driver=webdriver.Chrome("C:\\Users\\Hemant\\Downloads\\chromedriver_win32\\chromedriver.exe")
+driver.get("https://www.ltfs.com/companies/lnt-investment-management/statutory-disclosures.html")
+#it s the month 
+#it is the ronbotics process automation for 
+#month=driver.find_element_by_xpath("//span[text()='Month']")
+#driver.find_element_by_link_text("About Us").click()
+#time.sleep(5)
+# * $ ^
+# first middle last
+# first constant tag[attribute*="title"]
+# last constant tag[attribut^="title"
+#driver.find_element_by_link_text("Home").click()
+#time.sleep(5)
+value=driver.find_element_by_link_text("Statutory Disclosures")
+print(value.is_displayed())
+#attr=driver.find_element_by_xpath("h1[text(),'Monthly Fund Portfolios']")
+#print(attr.is_displayed())
+#msg="Apr
+# flag=0
+#first encounter data and object 
+#driver.find_element_by_link_text("Month").send_keys(msg)
+#var=driver.find_element_by_css_selector("span.select2-selection__rendered")
+obj=[]
+obj=driver.find_elements_by_css_selector("span[id^='select2-'][id$='-container']")
+for ptr in obj:
+    print(ptr.text)
+print(end=" \n")
+count=0
+for ptr in obj:
+    if(count==10 or count==11):
+        val1=ptr
+        print(val1.is_displayed())
+        val1.click()
+        time.sleep(5)
+        act=ActionChains(driver)
+        act.send_keys(Keys.ARROW_DOWN).perform()
+        act.send_keys(Keys.ENTER).perform()
+        act.send_keys(Keys.TAB).perform()
+        count+=1
+    if(count>11):
+        break 
+    if(count<10):
+        count+=1
+        print(ptr.text)
+act.send_keys(Keys.TAB).perform()
+act.send_keys(Keys.ENTER).perform()
+#data=driver.find_element_by_xpath("//span[@title='Month']")
+#print(data.is_displayed())
+#usepass="Apr"
+#data.send_keys("Apr")
+#driver.find_element_by_xpath("//span[contains(@id,'select2-') and contains(@id,'-container')]").send_keys("Apr")
+#print(var.is_displayed()
+#TRUE
+#TRUE
+#TRUE
+#TRUE
+#TRUE
+#driver.find_element_by_css_selector("")
+#var.send_keys("Apr")
+#driver.find_element_by_css_selector("span.select2-selection__rendered").send_keys("Apr")
+#register=driver.find_element_by_class_name("mr-dbp-inb mr-rel"
+#Printxx
+(register.is_displayed())
+#register.click()
+#element=driver.find_element_by_xpath("//span[@title='Month']")
+#print(element.is_displayed())
+#element.click()
+#month=Select(element)
+#month.select_by_visible_text('Apr')
+#ele=driver.find_element_by_xpath("//span[@title='Apr']")
+#flag bit for the element exist inside my website for the data accessment for the particular function
+#print(ele.is_displayed())
+#ele.click()
+time.sleep(20)
+#driver.find_element_by_class_name("mr-sec-nav-tab").click()
+driver.quit()
